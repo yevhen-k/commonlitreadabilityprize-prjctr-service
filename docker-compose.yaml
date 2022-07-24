@@ -17,7 +17,7 @@ services:
       resources:
         reservations:
           devices:
-            - capabilities: [ gpu ]
+            - capabilities: [ cpu ]
 
   nginx:
     image: nginx:latest
