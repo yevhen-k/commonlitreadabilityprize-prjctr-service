@@ -13,11 +13,11 @@ services:
       dl-app-network:
         aliases:
           - dl-app
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - capabilities: [ cpu ]
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - capabilities: [ gpu ]
 
   nginx:
     image: nginx:latest
