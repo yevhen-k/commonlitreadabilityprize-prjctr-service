@@ -22,6 +22,7 @@ The goal of the project is to implement web-app wrapper for the trained deep lea
 2. Pull the Nginx container:
    ```bash
    sudo docker pull nginx:latest
+   ```
 3. Run nginx docker (use `-d` flag in production):
    ```bash
    sudo docker run --name nginx-proxy-container --rm -v `pwd`/nginx-local.conf:/etc/nginx/nginx.conf:ro --net=host nginx:latest
