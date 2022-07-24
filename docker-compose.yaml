@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+
+  web-dl-app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
+    command: python3 app.py
+    networks:
+      dl-app-network:
+        aliases:
+          - dl-app
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [ gpu ]
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - dl-app-network
+
+networks:
+  dl-app-network:
